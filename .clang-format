@@ -1,0 +1,41 @@
+# 缩进宽度
+IndentWidth: 4
+# 构造函数的初始化列表的缩进宽度
+ConstructorInitializerIndentWidth: 4
+# 延续的行的缩进宽度
+ContinuationIndentWidth: 4
+# tab宽度
+TabWidth: 4
+# 使用tab字符: Never, ForIndentation, ForContinuationAndIndentation, Always
+UseTab: Never
+# 访问说明符(public、private等)的偏移
+AccessModifierOffset: -4
+
+BraceWrapping:   
+  # class定义后面
+  AfterClass: false
+  # 控制语句后面
+  AfterControlStatement: false
+  # enum定义后面
+  AfterEnum: false
+  # 函数定义后面
+  AfterFunction: false	
+  # 命名空间定义后面
+  AfterNamespace: false
+  # ObjC定义后面
+  AfterObjCDeclaration: false
+  # struct定义后面
+  AfterStruct: false	
+  # union定义后面
+  AfterUnion: false
+ 
+  AfterExternBlock: false
+  # catch之前
+  BeforeCatch: false
+  # else之前
+  BeforeElse: false
+  # 缩进大括号
+  IndentBraces: false
+  SplitEmptyFunction: false
+  SplitEmptyRecord: false
+  SplitEmptyNamespace: false
