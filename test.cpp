@@ -3,11 +3,12 @@ using namespace std;
 
 #include <vector>
 using std::vector;
-#include "33.搜索旋转排序数组.cpp"
+#include "34.在排序数组中查找元素的第一个和最后一个位置.cpp"
 
 int main() {
-    vector<int> input{0, 1,2,3};
-    int target = 0;
+    vector<int> input{1, 1, 2};
+    int target = 2;
     Solution *tester = new Solution();
-    cout << tester->search(input, target) << endl;
-}   
+    vector<int> result = tester->searchRange(input, target);
+    cout << result[0] << ", " << result[1] << endl;
+}
