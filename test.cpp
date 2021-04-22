@@ -3,12 +3,12 @@ using namespace std;
 
 #include <vector>
 using std::vector;
-#include "69.x-的平方根.cpp"
+#include "153.寻找旋转排序数组中的最小值.cpp"
 
 int main() {
-    // vector<int> input{1, 1, 2};
+    vector<int> input{4, 2};
     // int target = 2;
     Solution *tester = new Solution();
-    int result = tester->mySqrt(2147395599);
+    int result = tester->findMin(input);
     cout << result << endl;
 }
