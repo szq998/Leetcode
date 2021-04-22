@@ -3,12 +3,12 @@ using namespace std;
 
 #include <vector>
 using std::vector;
-#include "153.寻找旋转排序数组中的最小值.cpp"
+#include "81.搜索旋转排序数组-ii.cpp"
 
 int main() {
-    vector<int> input{4, 2};
-    // int target = 2;
+    vector<int> input{3, 2};
+    int target = 2;
     Solution *tester = new Solution();
-    int result = tester->findMin(input);
+    string result = tester->search(input, target) ? "true" : "false";
     cout << result << endl;
 }
