@@ -5,7 +5,22 @@
  */
 
 // @lc code=start
+#include <functional>
+using std::function;
+
 class Solution {
+    int binary_search(int low, int high, function<bool(int)> const &is_high) {
+        while (high - low != 1) {
+            int mid = (low + high) >> 1;
+            if (is_high(mid)) {
+                high = mid;
+            } else {
+                low = mid;
+            }
+        }
+        return high;
+    }
+
 public:
     bool search(vector<int> &nums, int target) {
         const int N = nums.size();
@@ -25,30 +40,27 @@ public:
                 k = search_start;
             }
         }
+        // 两次二分查找
         if (k == -1) {
             // 搜索旋转点k
-            int low = search_start - 1, high = N;
-            while (high - low != 1) {
-                int mid = (low + high) >> 1;
-                if (nums[mid] < nums[search_start]) {
-                    high = mid;
-                } else {
-                    low = mid;
+            k = this->binary_search(search_start - 1, N,
+                [&nums, search_start]
+                (int mid) -> bool {
+                    // 二分查找的分段方式为小于nums[search_start]
+                    return nums[mid] < nums[search_start];
                 }
-            }
-            k = high;
+            );
         }
         // 常规二分查找（坐标偏移k）
-        int low = -1, high = N;
-        while (high - low != 1) {
-            int mid = (low + high) >> 1;
-            if (nums[(mid + k) % N] >= target) {
-                high = mid;
-            } else {
-                low = mid;
+        // 查找首个>=target的位置
+        int searched = this->binary_search(-1, N, 
+            [&nums, k, N, target]
+            (int mid) -> bool {
+                // 二分查找分段方式为大于等于target
+                return nums[(mid + k) % N] >= target;
             }
-        }
-        if (high == N || nums[(high + k) % N] != target) {
+        );
+        if (searched == N || nums[(searched + k) % N] != target) {
             return false;
         } else {
             return true;
