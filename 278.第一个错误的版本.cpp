@@ -11,12 +11,13 @@
 class Solution {
 public:
     int firstBadVersion(int n) {
-        // n可能是最大的int，用unsigned来防止溢出
-        unsigned low = 0, high = (unsigned)n + 1;
+        // 第0个(不存在)版本必然“不bad”，low必须指向它
+        // 最后一个版本必然bad，所以high可以直接指向它
+        int low = 0, high = n;
         while (high - low != 1) {
-            unsigned mid = (low + high) >> 1;
+            int mid = low + ((high - low) >> 1);
             // 规定high所在的版本必定是bad
-            if (isBadVersion((int)mid)) {
+            if (isBadVersion(mid)) {
                 high = mid;
             } else {
                 low = mid;
