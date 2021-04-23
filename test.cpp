@@ -1,15 +1,18 @@
 #include <iostream>
 using namespace std;
 
-#include <vector>
-using std::vector;
-#include "154.寻找旋转排序数组中的最小值-ii.cpp"
+// #include <vector>
+// using std::vector;
+
+bool isBadVersion(int version) { return version >= 2147483647; }
+
+#include "278.第一个错误的版本.cpp"
 
 int main() {
-    vector<int> input{3,2,3};
+    // vector<int> input{3, 2, 3};
     // int target = 2;
     Solution *tester = new Solution();
     // string result = tester->search(input, target) ? "true" : "false";
-    int result = tester->findMin(input);
+    int result = tester->firstBadVersion(2147483647);
     cout << result << endl;
 }
