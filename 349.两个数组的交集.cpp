@@ -5,6 +5,9 @@
  */
 
 // @lc code=start
+#include <unordered_set>
+using std::unordered_set;
+
 class Solution {
     void _quick_recursive(vector<int> &nums, const int low, const int high) {
         if (high - low < 1) {
@@ -31,6 +34,27 @@ class Solution {
 
 public:
     vector<int> intersection(vector<int> &nums1, vector<int> &nums2) {
+        // 哈希法
+        // 放入两个哈希表中
+        unordered_set<int> set1, set2;
+        for (auto &num : nums1) {
+            set1.insert(num);
+        }
+        for (auto &num : nums2) {
+            set2.insert(num);
+        }
+        // 求交集
+        vector<int> inter;
+        for (auto &num : set1) {
+            if (set2.count(num)) {
+                inter.push_back(num);
+            }
+        }
+        return inter;
+    }
+
+    vector<int> intersection_0(vector<int> &nums1, vector<int> &nums2) {
+        // 排序后，使用双指针
         this->quick_sort(nums1);
         this->quick_sort(nums2);
         auto result = vector<int>();
