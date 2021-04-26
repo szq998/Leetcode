@@ -7,7 +7,7 @@ using std::vector;
 
 int main() {
     vector<int> input1{2, 1, 1};
-    vector<int> input2{1, 1};
+    vector<int> input2{1, 1, 1};
     // int target = 2;
     Solution *tester = new Solution();
     // string result = tester->search(input, target) ? "true" : "false";

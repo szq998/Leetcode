@@ -5,6 +5,9 @@
  */
 
 // @lc code=start
+#include <unordered_map>
+using std::unordered_map;
+
 class Solution {
     void _quick_recursive(vector<int> &nums, const int low, const int high) {
         if (high - low < 1)
@@ -29,6 +32,29 @@ class Solution {
 
 public:
     vector<int> intersect(vector<int> &nums1, vector<int> &nums2) {
+        // 哈希
+        // 记录nums1中数字的出现次数
+        unordered_map<int, int> appearance;
+        for (int &num : nums1) {
+            ++appearance[num];
+        }
+        vector<int> inter;
+        for (int &num : nums2) {
+            if (appearance.count(num)) {
+                // 共有数字
+                // 加入结果中
+                inter.push_back(num);
+                // 减少一次，满足题目最小值的要求
+                --appearance[num];
+                if (!appearance[num]) {
+                    appearance.erase(num);
+                }
+            }
+        }
+        return inter;
+    }
+
+    vector<int> intersect_0(vector<int> &nums1, vector<int> &nums2) {
         // 双指针
         // 排序
         this->quick_sort(nums1);
