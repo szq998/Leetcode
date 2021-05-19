@@ -4,17 +4,11 @@ using namespace std;
 #include <string>
 #include <vector>
 
-#include "524.通过删除字母匹配到字典里最长单词.cpp"
+#include "179.最大数.cpp"
 
 int main() {
-    // vector<vector<int>> input1{{1, 2}, {4, 7}, {3, 8}};
-    // vector<int> input2{1, 1, 1};
-    // int target = 2;
-    string s = "abce";
-    vector<string> words{"f", "va", "bb", "aecd", "abece", "abe", "abc"};
+    vector<int> nums = {34323, 3432};
     Solution *tester = new Solution();
-    // cout << tester->numMatchingSubseq(s, words) << endl;
-    // string result = tester->search(input, target) ? "true" : "false";
-    auto result = tester->findLongestWord(s, words);
+    string result = tester->largestNumber(nums);
     cout << result << endl;
 }
