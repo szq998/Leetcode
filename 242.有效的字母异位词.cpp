@@ -6,17 +6,20 @@
 
 // @lc code=start
 class Solution {
+
 public:
     bool isAnagram(string s, string t) {
-        char a[26] = {0}, b[26] = {0};
+        if (s.size() != t.size()) {
+            // determine by length
+            return false;
+        }
+        vector<int> table = vector<int>(26, 0);
         for (const char &c : s) {
-            ++a[c - 'a'];
+            ++table[c - 'a'];
         }
         for (const char &c : t) {
-            ++b[c - 'a'];
-        }
-        for (int i = 0; i < 26; ++i) {
-            if (a[i] != b[i]) {
+            --table[c - 'a'];
+            if (table[c - 'a'] < 0) {
                 return false;
             }
         }
