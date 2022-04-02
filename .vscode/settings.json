@@ -1,0 +1,18 @@
+{
+    "files.associations": {
+        "ostream": "cpp",
+        "*.tcc": "cpp",
+        "vector": "cpp",
+        "iostream": "cpp",
+        "numeric": "cpp"
+    },
+    "cSpell.words": [
+        "antfu",
+        "BBST",
+        "crbegin",
+        "inorder",
+        "leetcode",
+        "nums",
+        "vals"
+    ]
+}

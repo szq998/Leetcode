@@ -2,3 +2,6 @@
 .vscode/launch.json
 a.out
 test
+.DS_Store
+node_modules/*
+package-lock.json
